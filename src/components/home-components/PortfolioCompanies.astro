@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+const companies = await getCollection("companies");
+const tempTags = companies.map((comp) => comp.data.tags.flat()).flat();
+const uniqueTags = tempTags.filter(
+  (value, index) => tempTags.indexOf(value) === index
+);
+---
+
+<section class="portcomp w-full">
+  <div class="max-w-5xl mx-auto py-24">
+    <h2
+      class="text-4xl text-center font-medium text-black dark:text-white mb-9"
+    >
+      Our portfolio companies
+    </h2>
+
+    <div class="flex items-center justify-center gap-3 mb-12">
+      {
+        uniqueTags.map((tag) => (
+          <button
+            type="button"
+            id={tag}
+            class="px-6 py-3 rounded-full bg-black text-white text-base flex items-center gap-2"
+          >
+            {tag} <img src="/icons/cross-white.svg" alt="" />
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+      <!-- cards -->
+      {
+        companies.map(({ data }) => (
+          <div class="p-6 bg-white/50 rounded-xl shadow-sm hover:shadow-lg border-white border backdrop-blur-sm hover:cursor-pointer">
+            <div class="flex items-center justify-between mb-4">
+              <img
+                src={data.thumbnails}
+                class="w-[88px] h-[88px] rounded-lg"
+                alt=""
+              />
+              <a
+                href="#"
+                class="px-6 py-3 rounded-full border brand bg-[#FDF2F8] text-base"
+              >
+                {data.tags[0]}
+              </a>
+            </div>
+            <span class="text-sm font-bold uppercase overflow-hidden overflow-ellipsis text-wrap line-clamp-1">
+              {data.compTitle}
+            </span>
+            <h3 class="line-clamp-2 dark:text-white text-wrap text-2xl text-ellipsis overflow-hidden">
+              {data.compDescription}
+            </h3>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="w-full flex items-center justify-center">
+      <a
+        href="#"
+        class="py-4 px-6 rounded-xl text-white bg-black inline-flex items-center gap-2"
+        >Show more<span>
+          <img src="icons/linkopen.svg" alt="" />
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .portcomp {
+    background: url("/illustrations/portfolio-company-bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+</style>
+
+<script>
+  const itemclicked = (id: string) => {};
+</script>

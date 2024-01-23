@@ -1,0 +1,141 @@
+---
+const { thoughts } = Astro.props;
+---
+
+<style>
+  .secbg {
+    position: absolute;
+    bottom: -80px;
+    right: 0;
+    z-index: -1;
+    opacity: 1;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    text-transform: capitalize;
+  }
+
+  .card {
+    position: relative;
+    border-radius: 14px;
+    border: 1px solid#fff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+  }
+
+  .imgwrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .imgwrapper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(217, 41, 119, 0.5) 0%,
+      rgba(217, 41, 119, 0) 49.77%
+    );
+    border-radius: 15px;
+  }
+</style>
+<section class="relative z-10" data-aos="fade-up">
+  <div class="max-w-5xl mx-auto py-6 md:py-24">
+    <h2
+      class="text-4xl text-center font-medium text-black mb-9 dark:text-white"
+    >
+      Our thoughts on the internet
+    </h2>
+
+    <!-- cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+      <!-- card 1 -->
+      {
+        thoughts.map(({ data, ...rest }) => (
+          <div class="p-3 relative bg-white/50 card  dark:bg-white/5 rounded-xl border-white backdrop-blur-sm dark:backdrop-blur-md hover:shadow-sm">
+            <div class="max-h-60 mb-4 imgwrapper">
+              <img src="demo2.png" class="w-full rounded-xl" alt="" />
+            </div>
+            <span class="subtitle overflow-hidden overflow-ellipsis text-wrap line-clamp-1 dark:text-white">
+              {data.subTitle}
+            </span>
+            <h3 class="line-clamp-2 text-wrap text-2xl mb-2 dark:text-white title">
+              {data.title}
+            </h3>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.90625 14.5938C0.630208 14.5938 -0.0078125 14.1771 -0.0078125 13.3438C-0.0078125 12.8333 0.148438 12.2891 0.460938 11.7109C0.773438 11.1328 1.22396 10.5885 1.8125 10.0781C2.40625 9.5625 3.1224 9.14323 3.96094 8.82031C4.80469 8.4974 5.75781 8.33594 6.82031 8.33594C7.8776 8.33594 8.82552 8.4974 9.66406 8.82031C10.5078 9.14323 11.224 9.5625 11.8125 10.0781C12.4062 10.5885 12.8594 11.1328 13.1719 11.7109C13.4844 12.2891 13.6406 12.8333 13.6406 13.3438C13.6406 14.1771 13.0026 14.5938 11.7266 14.5938H1.90625ZM1.53906 13.4141H12.1016C12.2005 13.4141 12.2708 13.3984 12.3125 13.3672C12.3594 13.3359 12.3828 13.2786 12.3828 13.1953C12.3828 12.8724 12.2604 12.5026 12.0156 12.0859C11.776 11.6693 11.4193 11.2656 10.9453 10.875C10.4714 10.4844 9.88802 10.1615 9.19531 9.90625C8.50781 9.64583 7.71615 9.51562 6.82031 9.51562C5.92448 9.51562 5.13021 9.64583 4.4375 9.90625C3.74479 10.1615 3.16146 10.4844 2.6875 10.875C2.21354 11.2656 1.85417 11.6693 1.60938 12.0859C1.36979 12.5026 1.25 12.8724 1.25 13.1953C1.25 13.2786 1.27083 13.3359 1.3125 13.3672C1.35938 13.3984 1.4349 13.4141 1.53906 13.4141ZM6.82031 7.35938C6.20052 7.35938 5.63542 7.19531 5.125 6.86719C4.61458 6.53906 4.20573 6.09896 3.89844 5.54688C3.59635 4.98958 3.44531 4.3776 3.44531 3.71094C3.44531 3.04948 3.59635 2.44792 3.89844 1.90625C4.20573 1.36458 4.61458 0.932292 5.125 0.609375C5.63542 0.286458 6.20052 0.125 6.82031 0.125C7.44531 0.125 8.01302 0.283854 8.52344 0.601562C9.03385 0.919271 9.4401 1.34896 9.74219 1.89062C10.0443 2.42708 10.1953 3.02865 10.1953 3.69531C10.1953 4.36719 10.0417 4.98177 9.73438 5.53906C9.43229 6.09115 9.02604 6.53385 8.51562 6.86719C8.00521 7.19531 7.4401 7.35938 6.82031 7.35938ZM6.82031 6.17969C7.20573 6.17969 7.55729 6.07031 7.875 5.85156C8.19792 5.6276 8.45573 5.32812 8.64844 4.95312C8.84115 4.57292 8.9375 4.15365 8.9375 3.69531C8.9375 3.24219 8.84115 2.83594 8.64844 2.47656C8.46094 2.11198 8.20573 1.82552 7.88281 1.61719C7.5651 1.40885 7.21094 1.30469 6.82031 1.30469C6.4349 1.30469 6.08073 1.41146 5.75781 1.625C5.4401 1.83333 5.1849 2.11979 4.99219 2.48438C4.79948 2.84896 4.70312 3.25781 4.70312 3.71094C4.70312 4.16927 4.79948 4.58594 4.99219 4.96094C5.1901 5.33594 5.44792 5.63281 5.76562 5.85156C6.08854 6.07031 6.4401 6.17969 6.82031 6.17969Z"
+                    fill="#6B7280"
+                  />
+                </svg>
+                <span class="font-medium text-sm text-[#6B7280] w-32 overflow-hidden  truncate overflow-ellipsis">
+                  {data.writter}
+                </span>
+              </div>
+              <div>
+                <a
+                  href={rest.slug}
+                  class="rounded-xl inline-flex items-center gap-2 brand  text-nowrap"
+                >
+                  Read More
+                  <span class="">
+                    <svg
+                      width="12"
+                      height="13"
+                      viewBox="0 0 12 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.8646 9.22656C11.8646 9.4401 11.7917 9.61719 11.6459 9.75781C11.5052 9.89844 11.3412 9.96875 11.1537 9.96875C10.961 9.96875 10.7943 9.89583 10.6537 9.75C10.5183 9.60417 10.4506 9.4401 10.4506 9.25781V6.36719L10.5912 2.71875L9.30212 4.17969L1.54431 11.9297C1.40369 12.0703 1.23962 12.1406 1.05212 12.1406C0.921916 12.1406 0.802124 12.1068 0.692749 12.0391C0.583374 11.9714 0.494832 11.8828 0.427124 11.7734C0.359416 11.6589 0.325562 11.5391 0.325562 11.4141C0.325562 11.2318 0.398478 11.0677 0.544312 10.9219L8.2865 3.16406L9.73962 1.89062L5.92712 2.01562H3.20837C3.02608 2.01562 2.86202 1.94792 2.71619 1.8125C2.57556 1.67188 2.50525 1.50781 2.50525 1.32031C2.50525 1.13281 2.57296 0.96875 2.70837 0.828125C2.84379 0.682292 3.02087 0.609375 3.23962 0.609375H11.099C11.3334 0.609375 11.5183 0.679688 11.6537 0.820312C11.7891 0.960938 11.8568 1.14323 11.8568 1.36719L11.8646 9.22656Z"
+                        fill="#D92977"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="w-full flex items-center justify-center">
+      <a
+        href="#"
+        class="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 inline-flex items-center gap-2"
+        >Show more<span>
+          <img src="icons/linkopen.svg" alt="" />
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- bg image -->
+  <div class="secbg">
+    <img src="/illustrations/ourthoughts-Illustration.png" alt="" />
+  </div>
+</section>

@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'CoFoSansMono';
+    src: url('/fonts/CoFoSansMono-Regular-Trial.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFoSansMono';
+    src: url('/fonts/CoFoSansMono-Medium-Trial.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFoSansMono';
+    src: url('/fonts/CoFoSansMono-Bold-Trial.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CoFoSansMono';
+    src: url('/fonts/CoFoSansMono-Black-Trial.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    /* font-family: 'CoFoSansMono', sans-serif ; */
+    font-family: 'ThicccboiSans', sans-serif;
+}
+
+a {
+    font-family: 'CoFoSansMono', sans-serif;
+}
+
+nav {
+    font-family: 'CoFoSansMono', sans-serif;
+}
+
+header {
+    position: sticky;
+    top: 5px;
+    z-index: 1000;
+  }
+
+.portcomp {
+    position: relative;
+  }
+  .portcomp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/illustrations/portfolio-company-bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    z-index: -1;
+    filter: opacity(0.5);
+  }
+
+
+/* extens tailwind */
+
+@layer components {
+    .active {
+        @apply text-[#D92977] border border-[#D92977] py-2 px-3 rounded-full;
+    }
+
+    .titlelg {
+        @apply text-6xl text-black;
+    }
+
+    .article-title {
+        @apply text-4xl text-black font-medium;
+    }
+
+    .content {
+        @apply text-lg text-black;
+    }
+
+    .subtitle {
+        @apply text-xl text-[#111928] font-bold uppercase;
+    }
+
+    .display-none {
+        @apply hidden
+    }
+
+    .brand {
+        @apply text-[#D92977]
+    }
+}

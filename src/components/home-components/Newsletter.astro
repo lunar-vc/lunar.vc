@@ -1,0 +1,82 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<section class="bg-white">
+  <div class="newsletter w-full">
+    <div
+      class="max-w-5xl w-full text-center mx-auto flex flex-col items-center py-12"
+    >
+      <h2 class="text-3xl font-bold mb-10">Subscribe to our newsletter</h2>
+      <p class="max-w-sm text-[#4B5563] text-base mb-10">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit phasellus amet
+        dui quam vitae quis leo.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 md:mb-10"
+      >
+        <input
+          type="email"
+          name=""
+          id=""
+          placeholder="Enter your email"
+          class="bg-[#F3F4F6] py-4 px-2 md:px-6 rounded-md w-full"
+        />
+        <a
+          href="#"
+          class="py-4 px-6 rounded-xl text-white bg-black inline-flex items-center gap-2"
+          >Show more<span>
+            <img src="icons/linkopen.svg" alt="" />
+          </span>
+        </a>
+      </div>
+      <div class="flex items-center gap-4 mb-12">
+        <a href="#" class="rounded-xl bg-[#F3F4F6]">
+          <img src="brands/linkedIn.svg" alt="" />
+        </a>
+        <a href="#" class="rounded-xl bg-[#F3F4F6]">
+          <img src="brands/linkedIn.svg" alt="" />
+        </a>
+        <a href="#" class="rounded-xl bg-[#F3F4F6]">
+          <img src="brands/linkedIn.svg" alt="" />
+        </a>
+      </div>
+      <hr />
+      <!-- footer -->
+      <footer
+        class="w-full flex justify-between items-center text-start border-t-2 pt-4"
+      >
+        <p>
+          Copyright © <span>{currentYear}</span> Lunar Ventures | All Rights
+          Reserved
+        </p>
+        <ul class="flex items-center gap-4">
+          <li>
+            <a href="#">Terms</a>
+          </li>
+          <li>
+            <a href="#">Cookies</a>
+          </li>
+          <li>
+            <a href="#">Privacy</a>
+          </li>
+          <li>
+            <a href="#">Legal</a>
+          </li>
+          <li>
+            <a href="#">Imprint</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: url("/illustrations/newsletterIllustration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+  }
+</style>

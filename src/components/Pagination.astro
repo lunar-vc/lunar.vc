@@ -1,0 +1,63 @@
+---
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } =
+  Astro.props;
+const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
+---
+
+<style>
+  .pagitem {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 0px 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+  }
+</style>
+<div class="mb-24 flex items-center gap-1 md:gap-4 justify-center">
+  <button
+    class="px-4 py-2 rounded-full bg-white dark:bg-white/5 text-xs md:text-sm border"
+  >
+    {
+      firstUrl == currentUrl ? (
+        <span class="pagination__link disabled text-xs md:text-sm">
+          Previous
+        </span>
+      ) : (
+        <a href={firstUrl} class="pagination__link text-xs md:text-sm">
+          Previous
+        </a>
+      )
+    }
+  </button>
+
+  {
+    paginationList.map((num) => (
+      <button
+        class={`pagitem bg-white dark:bg-white/5 dark:text-[#fff] text-xs md:text-sm border pagination__link ${
+          currentPage == num ? "disabled active" : ""
+        }`}
+      >
+        <a href={`${firstUrl}${num == 1 ? "" : "/" + num}`}>{num}</a>
+      </button>
+    ))
+  }
+
+  {
+    lastUrl == currentUrl ? (
+      <button class="px-2 md:px-4 py-1 md:py-2 rounded-full bg-white dark:bg-white/5 border">
+        <span class="pagination__link disabled text-xs md:text-sm">End</span>
+      </button>
+    ) : (
+      <a
+        href={lastUrl}
+        class=" px-2 md:px-4 py-1 md:py-2 rounded-full bg-white border  dark:bg-white/5 pagination__link text-xs md:text-sm"
+      >
+        Next
+      </a>
+    )
+  }
+</div>

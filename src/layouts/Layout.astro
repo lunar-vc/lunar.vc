@@ -1,0 +1,35 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+import "~/styles/aos.css";
+import "~/styles/global.css";
+import "~/styles/customfonts.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+    <style>
+      body {
+        /* background: #f6f6f6; */
+      }
+    </style>
+  </head>
+  <body
+    class="max-w-8xl mx-auto px-4 sm:px-6 md:px-8 bg-[#f6f6f6] dark:bg-[#111628] dark:text-white"
+  >
+    <slot />
+
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init({
+        offset: 200,
+      });
+    </script>
+  </body>
+</html>

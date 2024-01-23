@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Navbar from "~/components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+const { frontmatter, prev, next } = Astro.props;
+---
+
+<Layout title="Lunar ventures">
+  <main>
+    <header>
+      <Navbar />
+    </header>
+
+    <article
+      class="prose md:prose-lg dark:prose-invert lg:prose-xl prose-img:rounded-xl prose-headings:text-4xl prose-a:text-blue-600 max-w-xl mx-auto py-24 dark:text-white"
+    >
+      {
+        frontmatter && (
+          <img class=" object-cover w-full" src={`/${frontmatter.thumbnail}`} />
+        )
+      }
+      <slot />
+    </article>
+  </main>
+  <!-- Footer -->
+  <Footer />
+</Layout>

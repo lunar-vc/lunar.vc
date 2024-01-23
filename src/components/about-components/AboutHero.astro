@@ -1,0 +1,38 @@
+---
+
+---
+
+<section
+  class="hero h-auto md:min-h-[600px] flex items-center mb-8 md:mb-0 dark:text-white"
+>
+  <div
+    class="max-w-[686px] mr-auto py-8 md:py-24 flex flex-col items-center justify-center gap-7"
+  >
+    <h1 class="text-4xl md:text-6xl">
+      We are <span class="brand">engineered</span> to propel you forward
+    </h1>
+    <p class="text-[#6B7280] text-base">
+      We are Europe's most technical VC and purpose build for deep tech founders
+      who are looking for a fund that deeply understands their unique challenges
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("illustrations/hero-Illustration.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    z-index: -1;
+    filter: opacity(0.5);
+  }
+</style>

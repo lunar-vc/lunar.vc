@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import PortfolioItem from "~/components/portfolio-components/PortfolioItem";
+import { getCollection } from "astro:content";
+
+const companies = await getCollection("companies");
+const tempTags = await companies.map((comp) => comp.data.tags.flat()).flat();
+const uniqueTags = await tempTags.filter(
+  (value, index) => tempTags.indexOf(value) === index
+);
+---
+
+<Layout title="Lunar ventures">
+  <main>
+    <header>
+      <div>
+        <Navbar />
+      </div>
+    </header>
+
+    <!-- portfolio hero -->
+    <section class="flex items-center w-full">
+      <div
+        class="py-24 flex md:items-center items-start flex-col md:flex-row w-full"
+      >
+        <h1 class="titlelg flex-1 text-start md:mb-0 mb-3 dark:text-white">
+          Portfolio
+        </h1>
+        <p class="content flex-[.5] md:ps-4 px-0 dark:text-white">
+          We are Europe's most technical VC and purpose build for deep tech
+          founders who are looking for a fund that deeply understand.
+        </p>
+      </div>
+    </section>
+
+    <PortfolioItem client:load companies={companies} tags={uniqueTags} />
+
+    <!-- Footer -->
+    <Footer />
+  </main>
+</Layout>

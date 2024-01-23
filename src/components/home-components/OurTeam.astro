@@ -1,0 +1,230 @@
+---
+
+---
+
+<style>
+  /* Add custom styles here */
+  .carousel-container {
+    overflow: hidden;
+  }
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  @media only screen and (min-width: 1290px) {
+    .prev {
+      margin-left: -60px !important;
+    }
+    .next {
+      margin-right: -60px !important;
+    }
+  }
+</style>
+<section data-aos="fade-up">
+  <div class="flex flex-col items-center justify-center">
+    <h3 class="uppercase text-xl font-bold text-[#111628] mb-4">OUR TEAM</h3>
+    <h2
+      class="text-4xl text-center max-w-[600px] font-medium text-black dark:text-white mb-9"
+    >
+      A team, purpose built for tech founders
+    </h2>
+
+    <!-- slider  -->
+    <div class="relative max-w-5xl mx-auto rounded-xl mb-12">
+      <div
+        x-data="{
+          currentSlide: 0,
+          skip: 1,
+          atBeginning: false,
+          atEnd: false,
+          autoSlideInterval: null,
+          startAutoSlide() {
+              this.autoSlideInterval = setInterval(() => {
+                  this.next();
+              }, 2500);
+          },
+          stopAutoSlide() {
+              clearInterval(this.autoSlideInterval);
+          },
+          goToSlide(index) {
+              let slider = this.$refs.slider;
+              let offset = slider.firstElementChild.getBoundingClientRect().width;
+              slider.scrollTo({ left: offset * index, behavior: 'smooth' });
+          },
+          next() {
+              let slider = this.$refs.slider;
+              let current = slider.scrollLeft;
+              let offset = slider.firstElementChild.getBoundingClientRect().width;
+              let maxScroll = offset * (slider.children.length - 1);
+  
+              current + offset >= maxScroll ? slider.scrollTo({ left: 0, behavior: 'smooth' }) : slider.scrollBy({ left: offset * this.skip, behavior: 'smooth' });
+          },
+          prev() {
+              let slider = this.$refs.slider;
+              let current = slider.scrollLeft;
+              let offset = slider.firstElementChild.getBoundingClientRect().width;
+              let maxScroll = offset * (slider.children.length - 1);
+  
+              current <= 0 ? slider.scrollTo({ left: maxScroll, behavior: 'smooth' }) : slider.scrollBy({ left: -offset * this.skip, behavior: 'smooth' });
+          },
+          updateButtonStates() {
+              let slideEls = this.$el.parentElement.children;
+              this.atBeginning = slideEls[0] === this.$el;
+              this.atEnd = slideEls[slideEls.length-1] === this.$el;
+          },
+          focusableWhenVisible: {
+              'x-intersect:enter'() { this.$el.removeAttribute('tabindex'); },
+              'x-intersect:leave'() { this.$el.setAttribute('tabindex', '-1'); }
+          },
+          disableNextAndPreviousButtons: {
+              'x-intersect:enter.threshold.05'() { this.updateButtonStates(); },
+              'x-intersect:leave.threshold.05'() { this.updateButtonStates(); }
+          },
+          updateCurrentSlide() {
+              let slider = this.$refs.slider;
+              let offset = slider.firstElementChild.getBoundingClientRect().width;
+              this.currentSlide = Math.round(slider.scrollLeft / offset);
+          }
+      }"
+        x-init="startAutoSlide()"
+        @mouseover="stopAutoSlide()"
+        @mouseout="startAutoSlide()"
+        class="flex flex-col w-full"
+      >
+        <div
+          x-on:keydown.right="next"
+          x-on:keydown.left="prev"
+          tabindex="0"
+          role="region"
+          aria-labelledby="carousel-label"
+          class="flex rounded-xl"
+        >
+          <h2 id="carousel-label" class="sr-only" hidden>Carousel</h2>
+
+          <span id="carousel-content-label" class="sr-only" hidden
+            >Carousel</span
+          >
+
+          <ul
+            x-ref="slider"
+            @scroll="updateCurrentSlide"
+            tabindex="0"
+            role="listbox"
+            aria-labelledby="carousel-content-label"
+            class="flex w-[90%] mx-auto xl:w-full overflow-x-hidden snap-x snap-mandatory"
+          >
+            <li
+              x-bind="disableNextAndPreviousButtons"
+              class="flex flex-col items-center justify-center w-full p-0 shrink-0 snap-start rounded-xl"
+              role="option"
+            >
+              <img
+                class="w-full max-w-full rounded-xl imgwrapper"
+                src="/illustrations/deepset.png"
+                alt="placeholder image"
+              />
+            </li>
+
+            <li
+              x-bind="disableNextAndPreviousButtons"
+              class="flex flex-col items-center justify-center w-full p-0 shrink-0 snap-start rounded-xl"
+              role="option"
+            >
+              <img
+                class="w-full max-w-full rounded-xl imgwrapper"
+                src="/illustrations/deepset1.png"
+                alt="placeholder image"
+              />
+            </li>
+
+            <li
+              x-bind="disableNextAndPreviousButtons"
+              class="flex flex-col items-center justify-center w-full p-0 shrink-0 snap-start rounded-xl"
+              role="option"
+            >
+              <img
+                class="w-full max-w-full rounded-xl imgwrapper"
+                src="/illustrations/deepset.png"
+                alt="placeholder image"
+              />
+            </li>
+          </ul>
+        </div>
+        <!-- Prev / Next Buttons -->
+        <div class="absolute z-10 flex justify-between w-full h-full">
+          <!-- Prev Button -->
+          <button
+            x-on:click="prev"
+            class="text-6xl -ml-4 prev"
+            :aria-disabled="atBeginning"
+            :tabindex="atEnd ? -1 : 0"
+          >
+            <span
+              aria-hidden="true"
+              class="h-12 w-12 flex items-center justify-center rounded-full border-[.9] bg-white dark:bg-white/5"
+            >
+              <svg
+                width="8"
+                height="15"
+                class="text-gray-300 lg:h-8 hover:text-gray-400"
+                viewBox="0 0 8 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="dark:fill-white"
+                  d="M0.1875 7.35938C0.1875 7.26042 0.205729 7.16927 0.242188 7.08594C0.278646 6.9974 0.333333 6.91667 0.40625 6.84375L6.60156 0.78125C6.74219 0.645833 6.91146 0.578125 7.10938 0.578125C7.24479 0.578125 7.36458 0.609375 7.46875 0.671875C7.57812 0.734375 7.66406 0.820312 7.72656 0.929688C7.79427 1.03385 7.82812 1.15365 7.82812 1.28906C7.82812 1.48177 7.75781 1.65104 7.61719 1.79688L1.92969 7.35938L7.61719 12.9219C7.75781 13.0677 7.82812 13.237 7.82812 13.4297C7.82812 13.5651 7.79427 13.6849 7.72656 13.7891C7.66406 13.8984 7.57812 13.9844 7.46875 14.0469C7.36458 14.1094 7.24479 14.1406 7.10938 14.1406C6.91146 14.1406 6.74219 14.0703 6.60156 13.9297L0.40625 7.875C0.333333 7.80208 0.278646 7.72396 0.242188 7.64062C0.205729 7.55208 0.1875 7.45833 0.1875 7.35938Z"
+                  fill="black"></path>
+              </svg>
+            </span>
+            <span class="sr-only">Skip to previous slide page</span>
+          </button>
+
+          <!-- Next Button -->
+          <button
+            x-on:click="next"
+            class="text-6xl -mr-3 xl:-mr-24 next"
+            :aria-disabled="atEnd"
+            :tabindex="atEnd ? -1 : 0"
+          >
+            <span
+              aria-hidden="true"
+              class="h-12 w-12 flex items-center justify-center rounded-full border-[.9] bg-white dark:bg-white/5"
+            >
+              <svg
+                width="8"
+                height="15"
+                class="text-gray-300 lg:h-8 hover:text-gray-400"
+                viewBox="0 0 8 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="dark:fill-white"
+                  d="M7.82031 7.35938C7.82031 7.45833 7.79948 7.55208 7.75781 7.64062C7.72135 7.72396 7.66667 7.80208 7.59375 7.875L1.40625 13.9297C1.26562 14.0703 1.09375 14.1406 0.890625 14.1406C0.760417 14.1406 0.640625 14.1094 0.53125 14.0469C0.421875 13.9844 0.335938 13.8984 0.273438 13.7891C0.210938 13.6849 0.179688 13.5651 0.179688 13.4297C0.179688 13.237 0.247396 13.0677 0.382812 12.9219L6.07031 7.35938L0.382812 1.79688C0.247396 1.65104 0.179688 1.48177 0.179688 1.28906C0.179688 1.15365 0.210938 1.03385 0.273438 0.929688C0.335938 0.820312 0.421875 0.734375 0.53125 0.671875C0.640625 0.609375 0.760417 0.578125 0.890625 0.578125C1.09375 0.578125 1.26562 0.645833 1.40625 0.78125L7.59375 6.84375C7.66667 6.91667 7.72135 6.9974 7.75781 7.08594C7.79948 7.16927 7.82031 7.26042 7.82031 7.35938Z"
+                  fill="black"></path>
+              </svg>
+            </span>
+            <span class="sr-only">Skip to next slide page</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-24">
+      <a
+        href="#"
+        class="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 inline-flex items-center gap-2"
+        >Read the Story <span>
+          <img src="icons/linkopen.svg" alt="" />
+        </span>
+      </a>
+    </div>
+  </div>
+</section>

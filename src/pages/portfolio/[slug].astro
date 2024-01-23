@@ -1,0 +1,253 @@
+---
+import { getCollection } from "astro:content";
+import Navbar from "~/components/Navbar.astro";
+import Layout from "~/layouts/Layout.astro";
+import Footer from "~/components/Footer.astro";
+const teams = await getCollection("stories");
+export async function getStaticPaths() {
+  let companies = await getCollection("companies");
+
+  return companies.map((comp, i) => ({
+    params: { slug: comp.slug },
+    props: {
+      comp,
+    },
+  }));
+}
+
+const { comp } = Astro.props;
+
+const { data: companyInfo } = comp;
+const { Content, remarkPluginFrontmatter } = await comp.render();
+---
+
+<Layout title="Lunar ventures">
+  <main>
+    <header>
+      <Navbar />
+    </header>
+    <!-- hero -->
+    <section>
+      <div class="py-24">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="text-lg text-[#374151] dark:text-white font-semibold"
+            >Companies</span
+          >
+          <span
+            ><svg
+              width="7"
+              height="11"
+              viewBox="0 0 7 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.23242 5.26953C6.23242 5.37109 6.21289 5.46484 6.17383 5.55078C6.13477 5.63672 6.07617 5.71875 5.99805 5.79688L1.43359 10.2617C1.30469 10.3945 1.14453 10.4609 0.953125 10.4609C0.828125 10.4609 0.712891 10.4297 0.607422 10.3672C0.501953 10.3086 0.417969 10.2266 0.355469 10.1211C0.296875 10.0195 0.267578 9.90625 0.267578 9.78125C0.267578 9.59375 0.337891 9.42773 0.478516 9.2832L4.5918 5.26953L0.478516 1.25586C0.337891 1.11133 0.267578 0.947266 0.267578 0.763672C0.267578 0.634766 0.296875 0.519531 0.355469 0.417969C0.417969 0.316406 0.501953 0.236328 0.607422 0.177734C0.712891 0.115234 0.828125 0.0839844 0.953125 0.0839844C1.14453 0.0839844 1.30469 0.148438 1.43359 0.277344L5.99805 4.74219C6.07617 4.82031 6.13477 4.90234 6.17383 4.98828C6.21289 5.07422 6.23242 5.16797 6.23242 5.26953Z"
+                fill="#374151"></path>
+            </svg>
+          </span>
+          <span class="text-lg text-[#6B7280] font-semibold"
+            >{companyInfo.compTitle}</span
+          >
+        </div>
+        <div class="flex flex-col md:flex-row items-start gap-2 md:gap-6">
+          <div
+            class="w-[150px] h-[150px] rounded-lg mb-4 dark:p-1 dark:bg-white/5"
+          >
+            <img
+              src={companyInfo.thumbnails}
+              alt=""
+              class="w-[150px] h-[150px] object-cover rounded-lg"
+            />
+          </div>
+          <div class="flex flex-col gap-1 w-full md:max-w-[600px]">
+            <h3 class="text-3xl font-bold text-black dark:text-white mb-3">
+              {companyInfo.compTitle}
+            </h3>
+            <p class="text-[#6B7280] text-base mb-3">
+              {companyInfo.compDescription}
+            </p>
+            <div class="flex items-center gap-3 brand">
+              <a
+                href={`https://www.${companyInfo.websiteLink}`}
+                class="flex items-center gap-3"
+              >
+                <svg
+                  width="12"
+                  height="13"
+                  viewBox="0 0 12 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 9.22656C12 9.4401 11.9271 9.61719 11.7812 9.75781C11.6406 9.89844 11.4766 9.96875 11.2891 9.96875C11.0964 9.96875 10.9297 9.89583 10.7891 9.75C10.6536 9.60417 10.5859 9.4401 10.5859 9.25781V6.36719L10.7266 2.71875L9.4375 4.17969L1.67969 11.9297C1.53906 12.0703 1.375 12.1406 1.1875 12.1406C1.05729 12.1406 0.9375 12.1068 0.828125 12.0391C0.71875 11.9714 0.630208 11.8828 0.5625 11.7734C0.494792 11.6589 0.460938 11.5391 0.460938 11.4141C0.460938 11.2318 0.533854 11.0677 0.679688 10.9219L8.42188 3.16406L9.875 1.89062L6.0625 2.01562H3.34375C3.16146 2.01562 2.9974 1.94792 2.85156 1.8125C2.71094 1.67188 2.64062 1.50781 2.64062 1.32031C2.64062 1.13281 2.70833 0.96875 2.84375 0.828125C2.97917 0.682292 3.15625 0.609375 3.375 0.609375H11.2344C11.4688 0.609375 11.6536 0.679688 11.7891 0.820312C11.9245 0.960938 11.9922 1.14323 11.9922 1.36719L12 9.22656Z"
+                    fill="#D92977"></path>
+                </svg>
+                View website
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- thumbnails -->
+    <section>
+      <div
+        class="h-[400px] w-full rounded-lg bg-gradient-to-r from-[#00000005] to-[#ea4a3509]"
+      >
+        <img
+          src={companyInfo.thumbnails}
+          alt=""
+          class="h-[400px] w-full object-cover"
+        />
+      </div>
+    </section>
+
+    <!-- info -->
+    <section>
+      <div
+        class="pt-8 md:pt-24 pb-8 flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="flex-1 w-full mb-4 md:mb-0">
+          <ul class="border max-w-[100%] md:max-w-[300px] rounded-lg">
+            {
+              companyInfo.investment.info.map((inv) => (
+                <li class="p-4 border-b border-[#E5E7EB] dark:text-white">
+                  {inv}
+                </li>
+              ))
+            }
+
+            <li class="p-4 border-b border-[#E5E7EB]">
+              <div class="flex items-center gap-4">
+                <a href="#" class="rounded-xl bg-[#F3F4F6]">
+                  <img src="/brands/linkedIn.svg" alt="" />
+                </a>
+                <a href="#" class="rounded-xl bg-[#F3F4F6]">
+                  <img src="/brands/linkedIn.svg" alt="" />
+                </a>
+                <a href="#" class="rounded-xl bg-[#F3F4F6]">
+                  <img src="/brands/linkedIn.svg" alt="" />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <p class="dark:text-white">
+            {companyInfo.compDescription}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- in the media -->
+    <section class="pb-12">
+      <div>
+        <h2 class="text-4xl font-bold mb-12 dark:text-white">In The Media</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- item 1 -->
+          <div class="flex items-start gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
+            />
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
+              <p class="text-[#6B7280] text-base">
+                Over the past year, Volosoft has undergone many changes! After
+                months of preparation.
+              </p>
+              <div class="flex items-center">
+                <a href="" class="flex items-center gap-3 dark:text-white">
+                  Read more
+                  <svg
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
+                      fill="#D92977"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- item 2 -->
+          <div class="flex items-start gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
+            />
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
+              <p class="text-[#6B7280] text-base">
+                Over the past year, Volosoft has undergone many changes! After
+                months of preparation.
+              </p>
+              <div class="flex items-center">
+                <a href="" class="flex items-center gap-3 dark:text-white">
+                  Read more
+                  <svg
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
+                      fill="#D92977"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- item 3 -->
+          <div class="flex items-start gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
+            />
+            <div class="flex flex-col gap-1">
+              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
+              <p class="text-[#6B7280] text-base">
+                Over the past year, Volosoft has undergone many changes! After
+                months of preparation.
+              </p>
+              <div class="flex items-center">
+                <a href="" class="flex items-center gap-3 dark:text-white">
+                  Read more
+                  <svg
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
+                      fill="#D92977"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="prose max-w-5xl mx-auto p-8">
+      <Content />
+    </section>
+    <!-- Footer -->
+    <Footer />
+  </main>
+</Layout>

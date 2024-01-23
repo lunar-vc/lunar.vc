@@ -1,0 +1,291 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+console.log(currentPath);
+---
+
+<style>
+  .nav {
+    border-radius: 30px;
+    /* box-shadow: 0px 4px 32px 0px rgba(191, 191, 191, 0.25); */
+    backdrop-filter: blur(50px);
+  }
+</style>
+
+<nav class="max-w-8xl mx-auto mt-4 position-sticky top-0">
+  <div
+    x-data="{ isOpen: false }"
+    class="nav bg-white/75 dark:bg-white/5 shadow-custom dark:shadow-none py-2 md:py-4 px-4 rounded-[30px] dark:text-white flex items-center justify-between font-cofosans"
+  >
+    <div>
+      <a href="/">
+        <img src="/logo-dark.png" class="inline-block dark:hidden" alt="" />
+        <img
+          src="/logo-white.png"
+          class="w-48 hidden dark:inline-block"
+          alt=""
+        />
+      </a>
+    </div>
+
+    <!-- left header section -->
+    <div class="flex items-center justify-between">
+      <ul class="hidden flex-1 space-x-6 lg:inline-flex items-center gap-9">
+        <li>
+          <a
+            href="/mission"
+            class={currentPath === "mission"
+              ? "active inline-flex items-center gap-2"
+              : ""}
+          >
+            {
+              currentPath === "mission" ? (
+                <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+              ) : (
+                ""
+              )
+            }
+            <span class="">Mission</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/portfolio"
+            class={currentPath === "portfolio"
+              ? "active inline-flex items-center gap-2"
+              : ""}
+          >
+            {
+              currentPath === "portfolio" ? (
+                <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+              ) : (
+                ""
+              )
+            }
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <a
+            href="/team"
+            class={currentPath === "team"
+              ? "active inline-flex items-center gap-2"
+              : ""}
+          >
+            {
+              currentPath === "team" ? (
+                <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+              ) : (
+                ""
+              )
+            }
+            Team
+          </a>
+        </li>
+        <li>
+          <a
+            href="/blog"
+            class={currentPath === "blog"
+              ? "active inline-flex items-center gap-2"
+              : ""}
+          >
+            {
+              currentPath === "blog" ? (
+                <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+              ) : (
+                ""
+              )
+            }
+            Blog
+          </a>
+        </li>
+        <li></li>
+      </ul>
+    </div>
+    <!-- right header section -->
+    <div>
+      <button
+        @click="isOpen = !isOpen"
+        type="submit"
+        class="px-3 md:px-4 py-3 md:py-4 rounded-xl bg-black flex items-center justify-center lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 text-white lg:hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <!-- night mode -->
+      <div class="hidden lg:flex">
+        <button
+          type="button"
+          class="moon px-6 py-4 rounded-xl bg-black flex items-center justify-center"
+        >
+          <img src="/dark-switch.svg" alt="" class="" />
+        </button>
+        <button
+          type="button"
+          class="sun px-6 py-4 rounded-xl bg-white/5 flex items-center justify-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+              fill="currentColor"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- mobile navbar -->
+      <div class="mobile-navbar">
+        <!-- navbar wrapper -->
+        <div
+          class="fixed w-[95%] h-auto p-5 bg-white dark:bg-black z-50 dark:backdrop-blur-3xl rounded-lg shadow-xl top-16 left-4 right-4"
+          x-show="isOpen"
+          @click.away=" isOpen = false"
+        >
+          <ul class="flex flex-col space-y-6 items-center">
+            <li>
+              <a
+                href="/mission"
+                class={currentPath === "mission"
+                  ? "active inline-flex items-center gap-2"
+                  : ""}
+              >
+                {
+                  currentPath === "mission" ? (
+                    <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+                  ) : (
+                    ""
+                  )
+                }
+                <span class="">Mission</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/portfolio"
+                class={currentPath === "portfolio"
+                  ? "active inline-flex items-center gap-2"
+                  : ""}
+              >
+                {
+                  currentPath === "portfolio" ? (
+                    <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+                  ) : (
+                    ""
+                  )
+                }
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="/team"
+                class={currentPath === "team"
+                  ? "active inline-flex items-center gap-2"
+                  : ""}
+              >
+                {
+                  currentPath === "team" ? (
+                    <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+                  ) : (
+                    ""
+                  )
+                }
+                Team
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                class={currentPath === "blog"
+                  ? "active inline-flex items-center gap-2"
+                  : ""}
+              >
+                {
+                  currentPath === "blog" ? (
+                    <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+                  ) : (
+                    ""
+                  )
+                }
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end mobile navbar -->
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  // icons
+  const sunIcon = document.querySelector(".sun");
+  const moonIcon = document.querySelector(".moon");
+
+  // Theme vars
+  const useTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  // icon toggling
+  const iconToggle = () => {
+    moonIcon?.classList.toggle("hidden");
+    sunIcon?.classList.toggle("hidden");
+  };
+
+  // theme check
+  const themeCheck = () => {
+    if (useTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      moonIcon?.classList.add("hidden");
+      return;
+    }
+    // if (useTheme === "dark" || (!useTheme && systemTheme)) {
+    //   document.documentElement.classList.add("dark");
+    //   moonIcon?.classList.add("hidden");
+    //   return;
+    // }
+    sunIcon?.classList.add("hidden");
+  };
+
+  // theme switch
+  const themeSwtich = () => {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      iconToggle();
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconToggle();
+  };
+
+  sunIcon?.addEventListener("click", () => {
+    themeSwtich();
+  });
+
+  moonIcon?.addEventListener("click", () => {
+    themeSwtich();
+  });
+
+  themeCheck();
+</script>
