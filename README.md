@@ -1,1 +1,6 @@
-# lunar.vc
+# lunar.
+
+```
+npm install
+npm run dev
+```
