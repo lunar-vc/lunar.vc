@@ -19,7 +19,11 @@ console.log(currentPath);
   >
     <div>
       <a href="/">
-        <img src="/logo-dark.png" class=" w-32 inline-block dark:hidden" alt="" />
+        <img
+          src="/logo-dark.png"
+          class="w-32 inline-block dark:hidden"
+          alt=""
+        />
         <img
           src="/logo-white.png"
           class="w-32 hidden dark:inline-block"
@@ -35,8 +39,8 @@ console.log(currentPath);
           <a
             href="/mission"
             class={currentPath === "mission"
-              ? "active inline-flex items-center gap-2"
-              : ""}
+              ? "active inline-flex items-center gap-2 hover:text-[#D92977]"
+              : " hover:text-[#D92977]"}
           >
             {
               currentPath === "mission" ? (
@@ -52,8 +56,8 @@ console.log(currentPath);
           <a
             href="/portfolio"
             class={currentPath === "portfolio"
-              ? "active inline-flex items-center gap-2"
-              : ""}
+              ? "active inline-flex items-center gap-2 hover:text-[#D92977]"
+              : "hover:text-[#D92977]"}
           >
             {
               currentPath === "portfolio" ? (
@@ -69,8 +73,8 @@ console.log(currentPath);
           <a
             href="/team"
             class={currentPath === "team"
-              ? "active inline-flex items-center gap-2"
-              : ""}
+              ? "active inline-flex items-center gap-2 hover:text-[#D92977]"
+              : "hover:text-[#D92977]"}
           >
             {
               currentPath === "team" ? (
@@ -86,8 +90,8 @@ console.log(currentPath);
           <a
             href="/blog"
             class={currentPath === "blog"
-              ? "active inline-flex items-center gap-2"
-              : ""}
+              ? "active inline-flex items-center gap-2 hover:text-[#D92977]"
+              : "hover:text-[#D92977]"}
           >
             {
               currentPath === "blog" ? (
@@ -174,7 +178,7 @@ console.log(currentPath);
                     ""
                   )
                 }
-                <span class="">Mission</span>
+                <span>Mission</span>
               </a>
             </li>
             <li>
@@ -186,12 +190,13 @@ console.log(currentPath);
               >
                 {
                   currentPath === "portfolio" ? (
-                    <span class="w-2 h-2 inline-block rounded-full bg-[#D92977]" />
+                    <span class="w-2 h-2  inline-block rounded-full bg-[#D92977]" />
                   ) : (
                     ""
                   )
                 }
-                Portfolio
+
+                <span class="">Portfolio</span>
               </a>
             </li>
             <li>

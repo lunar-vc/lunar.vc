@@ -8,7 +8,7 @@ const { thoughts } = Astro.props;
     bottom: -80px;
     right: 0;
     z-index: -1;
-    opacity: 1;
+    opacity: 0.5;
   }
 
   .subtitle {
@@ -126,7 +126,7 @@ const { thoughts } = Astro.props;
     <div class="w-full flex items-center justify-center">
       <a
         href="#"
-        class="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 inline-flex items-center gap-2"
+        class="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 inline-flex items-center gap-2 backdrop-blur-[6px]"
         >Show more<span>
           <img src="icons/linkopen.svg" alt="" />
         </span>
@@ -136,6 +136,6 @@ const { thoughts } = Astro.props;
 
   <!-- bg image -->
   <div class="secbg">
-    <img src="/illustrations/ourthoughts-Illustration.png" alt="" />
+    <img src="/illustrations/hero-Illustration.png" alt="" />
   </div>
 </section>

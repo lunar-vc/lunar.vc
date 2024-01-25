@@ -98,7 +98,7 @@ const CompanList = ({ companies, tags }) => {
 
         <div className="w-full flex items-center justify-center">
           <a
-            href="#"
+            href="/portfolio"
             className="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 font inline-flex items-center gap-2"
           >
             Show more

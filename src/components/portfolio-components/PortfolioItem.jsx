@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const PortfolioItem = ({ companies, tags }) => {
@@ -27,21 +27,27 @@ const PortfolioItem = ({ companies, tags }) => {
     return article.data.tags.some((tag) => selectedTags.includes(tag));
   });
 
-  console.log(filteredAndSortedArticles[0]);
+  useEffect(() => {
+    // Parse the tag from the URL
+    const urlTag = new URL(window.location.href).hash.slice(1);
 
+    if (tags.includes(urlTag)) {
+      setSelectedTags([urlTag]);
+    }
+  }, [tags]);
   return (
     <section className="portcomp w-full mb-8">
       <div className="">
-        <div className="flex  overflow-x-auto items-center justify-start gap-1 md:gap-3 mb-12 ">
+        <div className="flex md:flex-wrap  overflow-x-auto md:overflow-x-visible items-center justify-start gap-1 md:gap-3 mb-12 ">
           {tags.map((tag) => (
             <button
               key={tag}
               type="button"
               onClick={() => handleTagClick(tag)}
-              className={`px-3 md:px-6 py-2 md:py-3 rounded-full  text-base flex items-center gap-2 ${
+              className={`px-3 md:px-6 py-2 md:py-3 rounded-full  text-base flex items-center gap-2 text-nowrap ${
                 selectedTags.includes(tag)
                   ? "bg-[#D92977] text-white"
-                  : "bg-white/5 text-white"
+                  : "bg-white text-black dark:bg-white/5 dark:text-white"
               }`}
             >
               {tag}{" "}
@@ -72,7 +78,7 @@ const PortfolioItem = ({ companies, tags }) => {
         >
           {filteredAndSortedArticles.map(({ data, ...rest }, index) => (
             <a href={`/portfolio/${rest.slug}`} key={index}>
-              <div className="py-6 px-5 rounded-lg bg-white/50 dark:bg-white/5 dark:text-white border dark:border-white/5 backdrop-blur">
+              <div className="py-6 h-full overflow-y-hidden px-5 rounded-lg bg-white/5 dark:bg-white/5 dark:text-white border dark:border-white/5 backdrop-blur">
                 <img
                   src={data.thumbnails}
                   alt=""
@@ -82,11 +88,11 @@ const PortfolioItem = ({ companies, tags }) => {
                 <p className="mb-4 text-[#6B7280] line-clamp-2 text-wrap text-base text-ellipsis overflow-hidden">
                   {data.compDescription}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {data.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className=" brand text-sm px-2 py-1 rounded-full bg-[#FDF2F8] dark:bg-white/5 border-[#FBCFE8] dark:border-white/5 border"
+                      className=" brand text-sm px-2 py-1 rounded-full bg-[#FDF2F8] dark:bg-white/5 border-[#FBCFE8] dark:border-white/5 border text-nowrap"
                     >
                       {tag}
                     </span>
