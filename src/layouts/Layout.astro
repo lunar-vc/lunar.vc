@@ -6,6 +6,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import "~/styles/aos.css";
+import "~/styles/splide.min.css";
 import "~/styles/global.css";
 import "~/styles/customfonts.css";
 ---
@@ -25,10 +26,19 @@ import "~/styles/customfonts.css";
   >
     <slot />
 
+    <script src="../utils/splide.min.js"></script>
     <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script is:inline>
       AOS.init({
         offset: 200,
+      });
+    </script>
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        var splide = new Splide(".splide", {
+          dynamicMain: true,
+        });
+        splide.mount();
       });
     </script>
   </body>
