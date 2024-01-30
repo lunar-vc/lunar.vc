@@ -65,7 +65,39 @@ header {
     z-index: -1;
     filter: opacity(0.5);
   }
+  .swiper-pagination-bullet {
+    display: none;
+  }
+ 
+  .custom-bullet {
+    @apply inline-block;
+    width: 38px;
+    border-radius: 42px;
+    height: 5px;
+    background-color: #D1D5DB; /* Inactive bullet color in light mode */
+  
 
+  
+    cursor: pointer;
+  }
+  
+  .custom-bullet-active {
+    @apply inline-block;
+    width: 56px;
+    border-radius: 42px;
+    height: 5px;
+    background-color: #0000009f; /* Active bullet color in light mode */
+  
+  }
+  
+  .swiper-pagination {
+    @apply flex items-center justify-center;
+    margin-top: 10px;
+    gap: 5px;
+  
+    @media (prefers-color-scheme: dark) {
+    }
+  }
 /* extens tailwind */
 
 @layer components {

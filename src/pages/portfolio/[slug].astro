@@ -16,8 +16,9 @@ export async function getStaticPaths() {
 }
 
 const { comp } = Astro.props;
-
 const { data: companyInfo } = comp;
+console.log(companyInfo.investment.links);
+companyInfo.investment.links.map((lnk) => console.log(lnk));
 const { Content, remarkPluginFrontmatter } = await comp.render();
 ---
 
@@ -107,9 +108,9 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
     <!-- info -->
     <section>
       <div
-        class="pt-8 md:pt-24 pb-8 flex flex-col md:flex-row items-center justify-between"
+        class="pt-8 md:pt-24 pb-8 flex flex-col md:flex-row items-start justify-between"
       >
-        <div class="flex-1 w-full mb-4 md:mb-0">
+        <div class="flex-[.5] w-full mb-4 md:mb-0">
           <ul class="border max-w-[100%] md:max-w-[300px] rounded-lg">
             {
               companyInfo.investment.info.map((inv) => (
@@ -119,19 +120,11 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
               ))
             }
 
-            <li class="p-4 border-b border-[#E5E7EB]">
-              <div class="flex items-center gap-4">
-                <a href="#" class="rounded-xl bg-[#F3F4F6]">
-                  <img src="/brands/linkedIn.svg" alt="" />
-                </a>
-                <a href="#" class="rounded-xl bg-[#F3F4F6]">
-                  <img src="/brands/linkedIn.svg" alt="" />
-                </a>
-                <a href="#" class="rounded-xl bg-[#F3F4F6]">
-                  <img src="/brands/linkedIn.svg" alt="" />
-                </a>
-              </div>
-            </li>
+            {
+              companyInfo.investment.links.map((lnk) => {
+                <li>{lnk}</li>;
+              })
+            }
           </ul>
         </div>
         <div class="flex-1">

@@ -17,7 +17,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 
-const SliderComponent = ({ stories }) => {
+const TeamSlider = ({ teams }) => {
   const swiperRef = useRef(null);
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
@@ -50,7 +50,7 @@ const SliderComponent = ({ stories }) => {
           swiperRef.current = swiper;
         }}
       >
-        {stories.map(({ data }, index) => (
+        {teams.map(({ data }, index) => (
           <>
             <div className=" max-w-xl mx-auto">
               <SwiperSlide>
@@ -60,53 +60,9 @@ const SliderComponent = ({ stories }) => {
                 >
                   <img
                     class="w-full max-w-full rounded-xl imgwrapper"
-                    src={data.image}
+                    src={data.imageUrl}
                     alt="placeholder image"
                   />
-
-                  <div class="absulute bottom-0 z-40  max-w-5xl mx-auto flex items-center justify-between w-full my-4">
-                    <div class="flex flex-col gap-1 flex-1">
-                      <span class="text-2xl text-[#6B7280] ">
-                        Pre-Seed:{" "}
-                        <a
-                          href="#"
-                          class="text-2xl text-black dark:text-white font-body font-medium"
-                        >
-                          {data.preseed}
-                        </a>
-                      </span>
-                      <span class="text-2xl text-[#6B7280] ">
-                        Seed:{" "}
-                        <a
-                          href="#"
-                          class="text-2xl text-black font-body dark:text-white font-medium"
-                        >
-                          {data.seed}
-                        </a>
-                      </span>
-                      <span class="text-2xl text-[#6B7280] ">
-                        Series-A:{" "}
-                        <a
-                          href="#"
-                          class="text-2xl text-black dark:text-white font-body font-medium"
-                        >
-                          {data.seriesA}
-                        </a>
-                      </span>
-                    </div>
-                    <div class="absulute bottom-0">
-                      <a
-                        href={data.articleLink}
-                        target="_blank"
-                        class="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 inline-flex items-center gap-2 hover:cursor-pointer"
-                      >
-                        Read the Story{" "}
-                        <span>
-                          <img src="icons/linkopen.svg" alt="" />
-                        </span>
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </SwiperSlide>
             </div>
@@ -180,4 +136,4 @@ const SliderComponent = ({ stories }) => {
   );
 };
 
-export default SliderComponent;
+export default TeamSlider;

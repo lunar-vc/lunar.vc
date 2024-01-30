@@ -34,13 +34,13 @@ const CompanList = ({ companies, tags }) => {
           Our portfolio companies
         </h2>
 
-        <div className="flex items-center justify-center gap-1 md:gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center  gap-2 md:gap-3 mb-12">
           {tags.map((tag) => (
             <button
               key={tag}
               type="button"
               onClick={() => handleTagClick(tag)}
-              className={`px-3 md:px-6 py-2 md:py-3 rounded-full  text-base flex items-center gap-2 ${
+              className={`px-3 md:px-6 py-2 md:py-3 rounded-full text-nowrap  text-base flex items-center gap-2 ${
                 selectedTags.includes(tag)
                   ? "bg-black dark:bg-[#D92977]  text-white dark:text-white"
                   : "bg-white dark:bg-[#374151]  text-black dark:text-white "
