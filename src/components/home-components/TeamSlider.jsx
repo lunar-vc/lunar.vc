@@ -9,13 +9,13 @@ import {
 } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 // import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
+import "./TeamSlider.css";
 
 const TeamSlider = ({ teams }) => {
   const swiperRef = useRef(null);
@@ -70,7 +70,7 @@ const TeamSlider = ({ teams }) => {
         ))}
       </Swiper>
 
-      <div class="absolute z-10 -top-28 xl:-top-16  flex justify-between w-full mx-auto h-full">
+      <div class="absolute z-10 top-0  flex justify-between w-full mx-auto h-full">
         <button
           ref={prevButtonRef}
           class="text-6xl prev -ml-6 lg:-ml-16"

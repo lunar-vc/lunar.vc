@@ -64,7 +64,7 @@ const SliderComponent = ({ stories }) => {
                     alt="placeholder image"
                   />
 
-                  <div class="absulute bottom-0 z-40  max-w-5xl mx-auto flex items-center justify-between w-full my-4">
+                  <div class="absulute bottom-0 z-40  max-w-5xl mx-auto flex flex-col sm:flex-row gap-8 sm:gap-6 items-center justify-between w-full my-4">
                     <div class="flex flex-col gap-1 flex-1">
                       <span class="text-2xl text-[#6B7280] ">
                         Pre-Seed:{" "}

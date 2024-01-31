@@ -74,7 +74,7 @@ const CompanList = ({ companies, tags }) => {
           {filteredAndSortedArticles.map(({ data }, index) => (
             <div
               key={index}
-              className="p-6 bg-white/50 dark:bg-white/[.08] dark:border-white/[.08] backdrop-blur-[6px] rounded-xl shadow-sm hover:shadow-lg"
+              className="p-6 bg-white/50 dark:bg-white/[.08] dark:border-white/[.08] backdrop-blur-[6px] rounded-xl shadow-sm hover:shadow"
             >
               <div className="flex items-center justify-between mb-4">
                 <img

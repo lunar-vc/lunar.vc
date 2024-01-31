@@ -5,41 +5,20 @@ import TeamSlider from "./TeamSlider";
 const teams = await getCollection("teams");
 ---
 
-<style>
-  /* Add custom styles here */
-  .carousel-container {
-    overflow: hidden;
-  }
-
-  .carousel-inner {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .carousel-item {
-    min-width: 100%;
-    box-sizing: border-box;
-  }
-  @media only screen and (min-width: 1290px) {
-    .prev {
-      margin-left: -60px !important;
-    }
-    .next {
-      margin-right: -60px !important;
-    }
-  }
-</style>
-<section data-aos="fade-up">
-  <div class="flex flex-col items-center justify-center">
+<section>
+  <div
+    class="relative max-w-5xl mx-auto rounded-xl flex flex-col items-center justify-center"
+    data-aos="fade-up"
+  >
     <h3 class="uppercase text-xl font-bold text-[#111628] mb-4">OUR TEAM</h3>
     <h2
-      class="text-4xl text-center max-w-[600px] font-medium text-black dark:text-white mb-9"
+      class="z-10 text-4xl text-center max-w-[600px] font-medium text-black dark:text-white mb-9"
     >
       We are former CTOs, founders, researchers, and engineers.
     </h2>
 
     <!-- slider  -->
-    <div class="relative max-w-5xl mx-auto rounded-xl mb-12">
+    <div class="relative max-w-5xl mx-auto w-[95%] mb-12">
       <TeamSlider teams={teams} client:load />
     </div>
 
@@ -54,3 +33,34 @@ const teams = await getCollection("teams");
     </div>
   </div>
 </section>
+
+<style>
+  @media only screen and (min-width: 1290px) {
+    .prev {
+      margin-left: -60px !important;
+    }
+    .next {
+      margin-right: -60px !important;
+    }
+  }
+  .imgwrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .imgwrapper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      rgba(217, 41, 119, 0.5) 0%,
+      rgba(217, 41, 119, 0) 49.77%
+    );
+    border-radius: 15px;
+    z-index: 100;
+  }
+</style>
