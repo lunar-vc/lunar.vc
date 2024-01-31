@@ -45,7 +45,7 @@ const MeetTheTeam = () => {
   });
 
   return (
-    <div className="pt-16">
+    <div className="pt-12">
       {currUrl === "/team" ? (
         ""
       ) : (

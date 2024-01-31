@@ -5,8 +5,6 @@ npm install
 npm run dev
 ```
 
-
-
 ## Todos
 
 - [x] Bug 1
@@ -22,12 +20,12 @@ npm run dev
 - [ ] Bug 11
 - [x] Bug 12
 - [ ] Bug 13
-- [ ] Bug 14
+- [x] Bug 14
 - [x] Bug 15
 - [x] Bug 16
 - [x] Bug 17
 - [ ] Bug 18
-- [ ] Bug 19
-- [ ] Bug 20
+- [x] Bug 19
+- [x] Bug 20 - half done
 - [x] Bug 21
-- [ ] Bug 22
+- [x] Bug 22

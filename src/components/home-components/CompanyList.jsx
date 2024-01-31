@@ -27,10 +27,14 @@ const CompanList = ({ companies, tags }) => {
     return article.data.tags.some((tag) => selectedTags.includes(tag));
   });
 
+  const getCleanTagName = (tagName) => {
+    return tagName.replace(/-/g, " ");
+  };
+
   return (
     <section className="portcomp w-full pb-12 pt-6" data-aos="fade-up">
-      <div className="max-w-5xl mx-auto py-24">
-        <h2 className="text-4xl text-center font-medium text-black dark:text-white mb-9">
+      <div className="max-w-5xl mx-auto pt-12 pb-24">
+        <h2 className=" text-center uppercase text-xl font-bold text-[#111628] dark:text-white mb-8">
           Our portfolio companies
         </h2>
 
@@ -71,35 +75,36 @@ const CompanList = ({ companies, tags }) => {
           ref={parent}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24"
         >
-          {filteredAndSortedArticles.map(({ data }, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white/50 dark:bg-white/[.08] dark:border-white/[.08] backdrop-blur-[6px] rounded-xl shadow-sm hover:shadow"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <img
-                  src={data.thumbnails}
-                  className="w-[88px] h-[88px] rounded-lg"
-                  alt=""
-                />
-                <span className="px-6 py-3 rounded-full  dark:border-white/10 brand bg-[#FDF2F8] dark:bg-[#EA4A9933] text-base">
-                  {data.tags[0]}
+          {filteredAndSortedArticles.map(({ data, ...rest }, index) => (
+            <a href={`/portfolio/${rest.slug}`} key={index}>
+              <div className="p-6 bg-white/50 dark:bg-white/[.08] dark:border-white/[.08] backdrop-blur-[6px] rounded-xl shadow-sm hover:shadow-lg">
+                <div className="flex items-center justify-between mb-4 gap-2">
+                  <div className="w-[88px] h-[88px] flex-1">
+                    <img
+                      src={data.thumbnails}
+                      className="w-[88px] h-[88px] rounded-lg object-cover"
+                      alt=""
+                    />
+                  </div>
+                  <span className="px-4 py-3 rounded-full  dark:border-white/10 brand bg-[#FDF2F8] dark:bg-[#EA4A9933] text-sm text-nowrap whitespace-nowrap">
+                    {getCleanTagName(data.tags[0])}
+                  </span>
+                </div>
+                <span className="compTitle font-content text-sm   overflow-hidden overflow-ellipsis text-wrap line-clamp-1 dark:text-white">
+                  {data.compTitle}
                 </span>
+                <h3 className="compDes line-clamp-2 text-wrap text-2xl text-ellipsis overflow-hidden dark:text-white">
+                  {data.compDescription}
+                </h3>
               </div>
-              <span className="compTitle font-content text-sm   overflow-hidden overflow-ellipsis text-wrap line-clamp-1 dark:text-white">
-                {data.compTitle}
-              </span>
-              <h3 className="compDes line-clamp-2 text-wrap text-2xl text-ellipsis overflow-hidden dark:text-white">
-                {data.compDescription}
-              </h3>
-            </div>
+            </a>
           ))}
         </div>
 
         <div className="w-full flex items-center justify-center">
           <a
             href="/portfolio"
-            className="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 font inline-flex items-center gap-2"
+            className="py-4 px-6 rounded-xl text-white bg-black dark:bg-white/5 dark:backdrop-blur-[6px] dark:border-white/10 dark:border font inline-flex items-center gap-2"
           >
             Show more
             <span>
