@@ -13,18 +13,17 @@ npm run dev
 - [x] Bug 4
 - [x] Bug 5
 - [x] Bug 6
-- [ ] Bug 7 - shadows in hover state
+- [x] Bug 7
 - [x] Bug 8
-- [ ] Bug 9 - in dark mode no hover effect at all, inconsistent border around different elements
+- [x] Bug 9
 - [ ] Bug 10 - mission page carousel seems broken
-- [ ] Bug 11
+- [ ] Bug 11 - partial
 - [x] Bug 12
-- [ ] Bug 13
+- [ ] Bug 13 - team page not implemented
 - [x] Bug 14
 - [x] Bug 15
 - [x] Bug 16
 - [x] Bug 17
-- [ ] Bug 18
 - [x] Bug 19
 - [x] Bug 20 - half done
 - [x] Bug 21

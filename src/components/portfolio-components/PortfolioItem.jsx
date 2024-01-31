@@ -44,7 +44,7 @@ const PortfolioItem = ({ companies, tags }) => {
               key={tag}
               type="button"
               onClick={() => handleTagClick(tag)}
-              className={`px-3 md:px-6 py-2 md:py-3 rounded-full  text-base flex items-center gap-2 text-nowrap ${
+              className={`px-3 md:px-6 py-2 md:py-3 rounded-full  text-base flex items-center gap-2 text-nowrap hover:shadow-md dark:hover:shadow-[#d9297861]  transition-shadow ${
                 selectedTags.includes(tag)
                   ? "bg-[#D92977] text-white"
                   : "bg-white text-black dark:bg-white/5 dark:text-white"
@@ -78,7 +78,7 @@ const PortfolioItem = ({ companies, tags }) => {
         >
           {filteredAndSortedArticles.map(({ data, ...rest }, index) => (
             <a href={`/portfolio/${rest.slug}`} key={index}>
-              <div className="py-6 h-full overflow-y-hidden px-5 rounded-lg bg-white/5 dark:bg-white/5 dark:text-white border dark:border-white/5 backdrop-blur">
+              <div className="py-6 h-full overflow-y-hidden px-5 rounded-lg bg-white/5 dark:bg-white/5 dark:text-white border dark:border-white/5 backdrop-blur hover:shadow-md dark:hover:shadow-[#d9297861]  transition-shadow">
                 <img
                   src={data.thumbnails}
                   alt=""

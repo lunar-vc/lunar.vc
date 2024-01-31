@@ -141,20 +141,22 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
         <h2 class="text-4xl font-bold mb-12 dark:text-white">In The Media</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <!-- item 1 -->
-          <div class="flex items-start gap-4">
+          <a href="#" class="flex h-full items-start gap-4">
             <img
               src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
               class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
             />
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
-              <p class="text-[#6B7280] text-base">
+              <h3 class="text-xl text-[#111628] font-content">
+                Wall Street Journal
+              </h3>
+              <p class="text-[#6B7280] text-base font-content">
                 Over the past year, Volosoft has undergone many changes! After
                 months of preparation.
               </p>
               <div class="flex items-center">
-                <a href="" class="flex items-center gap-3 dark:text-white">
+                <span class="flex items-center gap-3 dark:text-white">
                   Read more
                   <svg
                     width="12"
@@ -167,25 +169,27 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
                       d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
                       fill="#D92977"></path>
                   </svg>
-                </a>
+                </span>
               </div>
             </div>
-          </div>
+          </a>
           <!-- item 2 -->
-          <div class="flex items-start gap-4">
+          <a href="#" class="flex h-full items-start gap-4">
             <img
               src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
               class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
             />
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
-              <p class="text-[#6B7280] text-base">
+              <h3 class="text-xl text-[#111628] font-content">
+                Wall Street Journal
+              </h3>
+              <p class="text-[#6B7280] text-base font-content">
                 Over the past year, Volosoft has undergone many changes! After
                 months of preparation.
               </p>
               <div class="flex items-center">
-                <a href="" class="flex items-center gap-3 dark:text-white">
+                <span class="flex items-center gap-3 dark:text-white">
                   Read more
                   <svg
                     width="12"
@@ -198,25 +202,27 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
                       d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
                       fill="#D92977"></path>
                   </svg>
-                </a>
+                </span>
               </div>
             </div>
-          </div>
+          </a>
           <!-- item 3 -->
-          <div class="flex items-start gap-4">
+          <a href="#" class="flex h-full items-start gap-4">
             <img
               src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
               class="w-[120px] h-[120px] rounded-lg object-cover max-w-full shadow-sm border"
             />
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl text-[#111628]">Wall Street Jorunal</h3>
-              <p class="text-[#6B7280] text-base">
+              <h3 class="text-xl text-[#111628] font-content">
+                Wall Street Journal
+              </h3>
+              <p class="text-[#6B7280] text-base font-content">
                 Over the past year, Volosoft has undergone many changes! After
                 months of preparation.
               </p>
               <div class="flex items-center">
-                <a href="" class="flex items-center gap-3 dark:text-white">
+                <span class="flex items-center gap-3 dark:text-white">
                   Read more
                   <svg
                     width="12"
@@ -229,10 +235,10 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
                       d="M11.5312 9.22656C11.5312 9.4401 11.4583 9.61719 11.3125 9.75781C11.1719 9.89844 11.0078 9.96875 10.8203 9.96875C10.6276 9.96875 10.4609 9.89583 10.3203 9.75C10.1849 9.60417 10.1172 9.4401 10.1172 9.25781V6.36719L10.2578 2.71875L8.96875 4.17969L1.21094 11.9297C1.07031 12.0703 0.90625 12.1406 0.71875 12.1406C0.588542 12.1406 0.46875 12.1068 0.359375 12.0391C0.25 11.9714 0.161458 11.8828 0.09375 11.7734C0.0260417 11.6589 -0.0078125 11.5391 -0.0078125 11.4141C-0.0078125 11.2318 0.0651042 11.0677 0.210938 10.9219L7.95312 3.16406L9.40625 1.89062L5.59375 2.01562H2.875C2.69271 2.01562 2.52865 1.94792 2.38281 1.8125C2.24219 1.67188 2.17188 1.50781 2.17188 1.32031C2.17188 1.13281 2.23958 0.96875 2.375 0.828125C2.51042 0.682292 2.6875 0.609375 2.90625 0.609375H10.7656C11 0.609375 11.1849 0.679688 11.3203 0.820312C11.4557 0.960938 11.5234 1.14323 11.5234 1.36719L11.5312 9.22656Z"
                       fill="#D92977"></path>
                   </svg>
-                </a>
+                </span>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>

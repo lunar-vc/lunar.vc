@@ -29,7 +29,6 @@ const { thoughts } = Astro.props;
   .card {
     position: relative;
     border-radius: 14px;
-    border: 1px solid#fff;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(6px);
   }
@@ -67,7 +66,7 @@ const { thoughts } = Astro.props;
       <!-- card 1 -->
       {
         thoughts.map(({ data, ...rest }) => (
-          <div class="p-3 relative bg-white/50 card  dark:bg-white/5 rounded-xl border-white backdrop-blur-sm dark:backdrop-blur-md hover:shadow-sm">
+          <div class=" cursor-pointer p-3 relative bg-white/50 card border dark:bg-white/5 rounded-xl border-white dark:border-white/[.08] backdrop-blur-sm dark:backdrop-blur-md hover:shadow-md dark:hover:shadow-[#d9297861]  transition-shadow">
             <div class="max-h-60 mb-4 imgwrapper">
               <img src="demo2.png" class="w-full rounded-xl" alt="" />
             </div>

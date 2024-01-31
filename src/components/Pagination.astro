@@ -14,20 +14,22 @@ const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
     justify-content: center;
     align-items: center;
     border-radius: 14px;
-    border: 1px solid #e5e7eb;
   }
 </style>
 <div class="mb-24 flex items-center gap-1 md:gap-4 justify-center">
   <button
-    class="px-4 py-2 rounded-full bg-white dark:bg-white/5 text-xs md:text-sm border"
+    class="px-4 py-2 rounded-full bg-white dark:bg-white/5 text-xs md:text-sm border dark:border-white/[.08]"
   >
     {
       firstUrl == currentUrl ? (
-        <span class="pagination__link disabled text-xs md:text-sm">
+        <span class="pagination__link disabled text-xs md:text-sm dark:border-white/[.08]">
           Previous
         </span>
       ) : (
-        <a href={firstUrl} class="pagination__link text-xs md:text-sm">
+        <a
+          href={firstUrl}
+          class="pagination__link text-xs md:text-sm dark:border-white/[.08]"
+        >
           Previous
         </a>
       )
@@ -37,7 +39,7 @@ const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
   {
     paginationList.map((num) => (
       <button
-        class={`pagitem bg-white dark:bg-white/5 dark:text-[#fff] text-xs md:text-sm border pagination__link ${
+        class={`pagitem bg-white dark:bg-white/5 dark:text-[#fff] text-xs md:text-sm border pagination__link dark:border-white/[.08] ${
           currentPage == num ? "disabled active" : ""
         }`}
       >
@@ -49,12 +51,14 @@ const paginationList = Array.from({ length: `${length}` }, (_, i) => i + 1);
   {
     lastUrl == currentUrl ? (
       <button class="px-2 md:px-4 py-1 md:py-2 rounded-full bg-white dark:bg-white/5 border">
-        <span class="pagination__link disabled text-xs md:text-sm">End</span>
+        <span class="pagination__link disabled text-xs md:text-sm dark:border-white/[.08]">
+          End
+        </span>
       </button>
     ) : (
       <a
         href={lastUrl}
-        class=" px-2 md:px-4 py-1 md:py-2 rounded-full bg-white border  dark:bg-white/5 pagination__link text-xs md:text-sm"
+        class=" px-2 md:px-4 py-1 md:py-2 rounded-full bg-white border  dark:bg-white/5 pagination__link dark:border-white/[.08] text-xs md:text-sm"
       >
         Next
       </a>
