@@ -25,7 +25,7 @@ const companiesSchema = defineCollection({
       info: z.array(z.string()),
       links: z.array(z.string())
     }),
-    category: z.enum(['software','gaming','biotech', 'web3', 'ml encryption', 'virtual reality']).optional(),
+    category: z.enum(['software','gaming','biotech', 'web3', 'ml encryption', 'virtual reality', 'cloud']).optional(),
     tags: z.array(z.enum(['ai-infrastructure','semiconductors','data-infrastructure', 'space-tech', 'next-gen-gaming', 'quantum-computing', 'autonomous-agents', 'bio-tech', 'cryptography']))
   })
 });
