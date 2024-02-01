@@ -257,23 +257,44 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "companies": {
-"company-1.mdx": {
-	id: "company-1.mdx";
-  slug: "company-1";
+"Deepset.mdx": {
+	id: "Deepset.mdx";
+  slug: "deepset";
   body: string;
   collection: "companies";
   data: InferEntrySchema<"companies">
 } & { render(): Render[".mdx"] };
-"company-2.mdx": {
-	id: "company-2.mdx";
-  slug: "company-2";
+"Electric.mdx": {
+	id: "Electric.mdx";
+  slug: "electric";
   body: string;
   collection: "companies";
   data: InferEntrySchema<"companies">
 } & { render(): Render[".mdx"] };
-"company-3.mdx": {
-	id: "company-3.mdx";
-  slug: "company-3";
+"Hathora.mdx": {
+	id: "Hathora.mdx";
+  slug: "hathora";
+  body: string;
+  collection: "companies";
+  data: InferEntrySchema<"companies">
+} & { render(): Render[".mdx"] };
+"Instill.mdx": {
+	id: "Instill.mdx";
+  slug: "instill";
+  body: string;
+  collection: "companies";
+  data: InferEntrySchema<"companies">
+} & { render(): Render[".mdx"] };
+"Mystic.mdx": {
+	id: "Mystic.mdx";
+  slug: "mystic";
+  body: string;
+  collection: "companies";
+  data: InferEntrySchema<"companies">
+} & { render(): Render[".mdx"] };
+"Zama.mdx": {
+	id: "Zama.mdx";
+  slug: "zama";
   body: string;
   collection: "companies";
   data: InferEntrySchema<"companies">
@@ -303,46 +324,74 @@ declare module 'astro:content' {
 } & { render(): Render[".mdx"] };
 };
 "stories": {
-"story-1.mdx": {
-	id: "story-1.mdx";
-  slug: "story-1";
+"deepset.mdx": {
+	id: "deepset.mdx";
+  slug: "deepset";
   body: string;
   collection: "stories";
   data: InferEntrySchema<"stories">
 } & { render(): Render[".mdx"] };
-"story-2.mdx": {
-	id: "story-2.mdx";
-  slug: "story-2";
-  body: string;
-  collection: "stories";
-  data: InferEntrySchema<"stories">
-} & { render(): Render[".mdx"] };
-"story-3.mdx": {
-	id: "story-3.mdx";
-  slug: "story-3";
-  body: string;
-  collection: "stories";
-  data: InferEntrySchema<"stories">
-} & { render(): Render[".mdx"] };
-"story-4.mdx": {
-	id: "story-4.mdx";
-  slug: "story-4";
+"hathora.mdx": {
+	id: "hathora.mdx";
+  slug: "hathora";
   body: string;
   collection: "stories";
   data: InferEntrySchema<"stories">
 } & { render(): Render[".mdx"] };
 };
 "teams": {
-"member-1.mdx": {
-	id: "member-1.mdx";
-  slug: "member-1";
+"albertocresto.mdx": {
+	id: "albertocresto.mdx";
+  slug: "albertocresto";
   body: string;
   collection: "teams";
   data: InferEntrySchema<"teams">
 } & { render(): Render[".mdx"] };
-"member-2.mdx": {
-	id: "member-2.mdx";
-  slug: "member-2";
+"cindy.mdx": {
+	id: "cindy.mdx";
+  slug: "cindy";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"eladverbin.mdx": {
+	id: "eladverbin.mdx";
+  slug: "eladverbin";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"luis.mdx": {
+	id: "luis.mdx";
+  slug: "luis";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"mickhalsband.mdx": {
+	id: "mickhalsband.mdx";
+  slug: "mickhalsband";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"morrisclay.mdx": {
+	id: "morrisclay.mdx";
+  slug: "morrisclay";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"swetha.mdx": {
+	id: "swetha.mdx";
+  slug: "swetha";
+  body: string;
+  collection: "teams";
+  data: InferEntrySchema<"teams">
+} & { render(): Render[".mdx"] };
+"teddy.mdx": {
+	id: "teddy.mdx";
+  slug: "teddy";
   body: string;
   collection: "teams";
   data: InferEntrySchema<"teams">
