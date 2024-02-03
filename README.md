@@ -16,7 +16,7 @@ npm run dev
 - [x] Bug 7
 - [x] Bug 8
 - [x] Bug 9
-- [ ] Bug 10 - mission page carousel seems broken
+- [x] Bug 10
 - [ ] Bug 11 - partial
 - [x] Bug 12
 - [ ] Bug 13 - team page not implemented

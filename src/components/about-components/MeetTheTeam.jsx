@@ -54,7 +54,7 @@ const MeetTheTeam = () => {
         </h2>
       )}
       {/*  filter tags */}
-      <div className="flex max-w-96 overflow-x-auto items-center justify-start gap-1 md:gap-3 mb-12">
+      <div className="flex flex-wrap  overflow-x-auto items-center justify-start gap-1 md:gap-3 mb-12">
         {tags.map((tag) => (
           <button
             key={tag}

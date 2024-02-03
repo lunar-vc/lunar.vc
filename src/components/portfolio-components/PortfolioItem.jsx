@@ -38,7 +38,7 @@ const PortfolioItem = ({ companies, tags }) => {
   return (
     <section className="portcomp w-full mb-8">
       <div className="">
-        <div className="flex md:flex-wrap  overflow-x-auto md:overflow-x-visible items-center justify-start gap-1 md:gap-3 mb-12 ">
+        <div className="flex md:flex-wrap  overflow-x-auto md:overflow-x-visible items-center justify-start gap-1 md:gap-3 mb-12 backdrop-blur-[6px] ">
           {tags.map((tag) => (
             <button
               key={tag}

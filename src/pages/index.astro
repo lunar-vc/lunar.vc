@@ -37,7 +37,7 @@ const ourThoughts = await getCollection("thoughts");
     <FounderStories />
     <!-- Our portfolio companies -->
     <!-- <PortfolioCompanies /> -->
-    <CompanyList client:load companies={companies} tags={uniqueTags} />
+    <CompanyList client:visible companies={companies} tags={uniqueTags} />
     <!-- Our Team -->
     <OurTeam />
     <!-- Co investors and Followers -->
