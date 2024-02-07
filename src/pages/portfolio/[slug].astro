@@ -17,8 +17,7 @@ export async function getStaticPaths() {
 
 const { comp } = Astro.props;
 const { data: companyInfo } = comp;
-console.log(companyInfo.investment.links);
-companyInfo.investment.links.map((lnk) => console.log(lnk));
+const { facebook, linkedin, otherLink } = companyInfo.investment;
 const { Content, remarkPluginFrontmatter } = await comp.render();
 ---
 
@@ -56,9 +55,14 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
             class="w-[150px] h-[150px] rounded-lg mb-4 dark:p-1 dark:bg-white/5"
           >
             <img
-              src={companyInfo.thumbnails}
+              src={companyInfo.logo}
               alt=""
-              class="w-[150px] h-[150px] object-cover rounded-lg"
+              class="w-[150px] h-[150px] object-cover rounded-lg dark:hidden"
+            />
+            <img
+              src={companyInfo.darkLogo}
+              alt=""
+              class="w-[150px] h-[150px] object-cover rounded-lg hidden dark:block"
             />
           </div>
           <div class="flex flex-col gap-1 w-full md:max-w-[600px]">
@@ -120,11 +124,70 @@ const { Content, remarkPluginFrontmatter } = await comp.render();
               ))
             }
 
-            {
-              companyInfo.investment.links.map((lnk) => {
-                <li>{lnk}</li>;
-              })
-            }
+            <div class="flex items-center gap-3 px-4">
+              {
+                facebook && (
+                  <li class="py-4  border-[#E5E7EB] dark:text-white">
+                    <a href={`${facebook}/`}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                )
+              }
+              {
+                linkedin && (
+                  <li class="py-4  border-[#E5E7EB] dark:text-white">
+                    <a href={`${linkedin}/`}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.93994 4.99999C6.93968 5.53043 6.72871 6.03903 6.35345 6.41391C5.97819 6.7888 5.46937 6.99926 4.93894 6.99899C4.40851 6.99873 3.89991 6.78776 3.52502 6.4125C3.15014 6.03724 2.93968 5.52843 2.93994 4.99799C2.94021 4.46756 3.15117 3.95896 3.52644 3.58407C3.9017 3.20919 4.41051 2.99873 4.94094 2.99899C5.47137 2.99926 5.97998 3.21023 6.35486 3.58549C6.72975 3.96075 6.94021 4.46956 6.93994 4.99999ZM6.99994 8.47999H2.99994V21H6.99994V8.47999ZM13.3199 8.47999H9.33994V21H13.2799V14.43C13.2799 10.77 18.0499 10.43 18.0499 14.43V21H21.9999V13.07C21.9999 6.89999 14.9399 7.12999 13.2799 10.16L13.3199 8.47999Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                )
+              }
+              {
+                otherLink && (
+                  <li class="py-4  border-[#E5E7EB] dark:text-white">
+                    <a href={`${otherLink}/`}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                )
+              }
+            </div>
           </ul>
         </div>
         <div class="flex-1">

@@ -81,8 +81,13 @@ const CompanList = ({ companies, tags }) => {
                 <div className="flex items-center justify-between mb-4 gap-2">
                   <div className="w-[88px] h-[88px] flex-1">
                     <img
-                      src={data.thumbnails}
-                      className="w-[88px] h-[88px] rounded-lg object-cover"
+                      src={data.logo}
+                      className="w-[88px] h-[88px] rounded-lg object-cover dark:hidden"
+                      alt=""
+                    />
+                    <img
+                      src={data.darkLogo}
+                      className="w-[88px] h-[88px] rounded-lg object-cover hidden  dark:block"
                       alt=""
                     />
                   </div>
