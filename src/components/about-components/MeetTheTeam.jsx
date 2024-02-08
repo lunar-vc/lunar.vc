@@ -101,39 +101,38 @@ const MeetTheTeam = () => {
       <div ref={parent} className=" grid grid-cols-1 md:grid-cols-3 gap-3">
         {filteredAndSortedArticles?.length > 0 &&
           filteredAndSortedArticles.map((team) => (
-            <div
-              key={team.id}
-              className="p-4 bg-white dark:bg-white/5 dark:text-white font-body font-normal rounded-md"
-            >
-              <img
-                src={`/${team.data.imageUrl}`}
-                className="w-full h-full rounded-md object-cover max-h-[250px]"
-                alt=""
-              />
-              <div className=" flex flex-col gap-2 mt-4">
-                <h3 className=" text-2xl font-medium">{team.data.name}</h3>
-                <p className=" text-base brand">{team.data.designation}</p>
-                <p className="line-clamp-2">
-                  Passionate about deep tech, artificial intelligence and making
-                  the world a petter place.
-                </p>
-                <a href="">
-                  <svg
-                    width="17"
-                    height="16"
-                    viewBox="0 0 17 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      id="LinkedIn"
-                      d="M0 1.85859C0 1.31985 0.189195 0.87541 0.567568 0.525253C0.945941 0.175079 1.43784 0 2.04324 0C2.63784 0 3.11891 0.17238 3.48649 0.517172C3.86486 0.872727 4.05406 1.33602 4.05406 1.90707C4.05406 2.42424 3.87028 2.85521 3.5027 3.2C3.12433 3.55556 2.62703 3.73333 2.01081 3.73333H1.9946C1.4 3.73333 0.918925 3.55556 0.551352 3.2C0.183778 2.84444 0 2.3973 0 1.85859ZM0.210811 16V5.20404H3.81081V16H0.210811ZM5.80541 16H9.40541V9.97172C9.40541 9.5946 9.44866 9.30369 9.53514 9.09899C9.68648 8.73265 9.91622 8.42288 10.2243 8.1697C10.5324 7.91649 10.9189 7.7899 11.3838 7.7899C12.5946 7.7899 13.2 8.60336 13.2 10.2303V16H16.8V9.8101C16.8 8.21548 16.4216 7.00606 15.6649 6.18182C14.9081 5.35758 13.9081 4.94545 12.6649 4.94545C11.2703 4.94545 10.1838 5.54343 9.40541 6.73939V6.77172H9.38919L9.40541 6.73939V5.20404H5.80541C5.82702 5.54882 5.83784 6.62086 5.83784 8.4202C5.83784 10.2195 5.82702 12.7461 5.80541 16Z"
-                      fill="#6B7280"
-                    />
-                  </svg>
-                </a>
+            <a href={`team/${team.slug}`} key={team.id}>
+              <div className="p-4 bg-white dark:bg-white/5 dark:text-white font-body font-normal rounded-md">
+                <img
+                  src={`/${team.data.imageUrl}`}
+                  className="w-full h-full rounded-md object-cover max-h-[250px]"
+                  alt=""
+                />
+                <div className=" flex flex-col gap-2 mt-4">
+                  <h3 className=" text-2xl font-medium">{team.data.name}</h3>
+                  <p className=" text-base brand">{team.data.designation}</p>
+                  <p className="line-clamp-2">
+                    Passionate about deep tech, artificial intelligence and
+                    making the world a petter place.
+                  </p>
+                  <a href="">
+                    <svg
+                      width="17"
+                      height="16"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        id="LinkedIn"
+                        d="M0 1.85859C0 1.31985 0.189195 0.87541 0.567568 0.525253C0.945941 0.175079 1.43784 0 2.04324 0C2.63784 0 3.11891 0.17238 3.48649 0.517172C3.86486 0.872727 4.05406 1.33602 4.05406 1.90707C4.05406 2.42424 3.87028 2.85521 3.5027 3.2C3.12433 3.55556 2.62703 3.73333 2.01081 3.73333H1.9946C1.4 3.73333 0.918925 3.55556 0.551352 3.2C0.183778 2.84444 0 2.3973 0 1.85859ZM0.210811 16V5.20404H3.81081V16H0.210811ZM5.80541 16H9.40541V9.97172C9.40541 9.5946 9.44866 9.30369 9.53514 9.09899C9.68648 8.73265 9.91622 8.42288 10.2243 8.1697C10.5324 7.91649 10.9189 7.7899 11.3838 7.7899C12.5946 7.7899 13.2 8.60336 13.2 10.2303V16H16.8V9.8101C16.8 8.21548 16.4216 7.00606 15.6649 6.18182C14.9081 5.35758 13.9081 4.94545 12.6649 4.94545C11.2703 4.94545 10.1838 5.54343 9.40541 6.73939V6.77172H9.38919L9.40541 6.73939V5.20404H5.80541C5.82702 5.54882 5.83784 6.62086 5.83784 8.4202C5.83784 10.2195 5.82702 12.7461 5.80541 16Z"
+                        fill="#6B7280"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         {/* card 1 */}
       </div>

@@ -16,8 +16,10 @@ const { frontmatter, prev, next } = Astro.props;
       class="prose md:prose-lg dark:prose-invert lg:prose-xl prose-img:rounded-xl prose-headings:text-4xl prose-a:text-blue-600 max-w-xl mx-auto py-24 dark:text-white"
     >
       {
-        frontmatter && (
+        frontmatter && frontmatter.thumbnail ? (
           <img class=" object-cover w-full" src={`/${frontmatter.thumbnail}`} />
+        ) : (
+          <img class=" object-cover w-full" src={`/${frontmatter.imageUrl}`} />
         )
       }
       <slot />

@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import MeetTheTeam from "../../components/about-components/MeetTheTeam";
+---
+
+<Layout title="Lunar ventures">
+  <main>
+    <header>
+      <Navbar />
+    </header>
+
+    <section class="flex items-center w-full dark:text-white">
+      <div class="pt-12 pb-24 w-full">
+        <h1 class="titlelg flex-1 text-start dark:text-white mb-6">Team</h1>
+        <p class="content dark:text-white max-w-xl">
+          We are Europe’s most technical VC and purpose build for deep tech
+          founders who are looking for a fund that deeply understand.
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <MeetTheTeam client:load />
+    </section>
+  </main>
+  <!-- Footer -->
+  <Footer />
+</Layout>

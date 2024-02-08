@@ -19,7 +19,7 @@ npm run dev
 - [x] Bug 10
 - [ ] Bug 11 - partial
 - [x] Bug 12
-- [ ] Bug 13 - team page not implemented
+- [x] Bug 13
 - [x] Bug 14
 - [x] Bug 15
 - [x] Bug 16

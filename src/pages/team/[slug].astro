@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Footer from "~/components/Footer.astro";
+import Navbar from "~/components/Navbar.astro";
+import BlogLayout from "~/layouts/BlogLayout.astro";
+import Layout from "~/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  let teams = await getCollection("teams");
+
+  return teams.map((team, i) => ({
+    params: { slug: team.slug },
+    props: {
+      team,
+    },
+  }));
+}
+
+const { team } = Astro.props;
+console.log(team);
+const { data: teamInfo } = team;
+const { Content, remarkPluginFrontmatter } = await team.render();
+---
+
+<BlogLayout frontmatter={teamInfo}>
+  <Content />
+</BlogLayout>
