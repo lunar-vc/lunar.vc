@@ -82,7 +82,7 @@ const PortfolioItem = ({ companies, tags }) => {
                 <img
                   src={data.thumbnails}
                   alt=""
-                  className="w-[100px] h-[100px] rounded-md mb-4"
+                  className="w-[100px] h-[100px] rounded-md mb-4 object-cover"
                 />
                 <span className="mb-3 text-2xl">{data.compTitle}</span>
                 <p className="mb-4 text-[#6B7280] line-clamp-2 text-wrap text-base text-ellipsis overflow-hidden">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import "./MeetTheTeam.css";
 
 const MeetTheTeam = () => {
   const [teams, setTeams] = useState([]);
@@ -101,8 +102,12 @@ const MeetTheTeam = () => {
       <div ref={parent} className=" grid grid-cols-1 md:grid-cols-3 gap-3">
         {filteredAndSortedArticles?.length > 0 &&
           filteredAndSortedArticles.map((team) => (
-            <a href={`team/${team.slug}`} key={team.id}>
-              <div className="p-4 bg-white dark:bg-white/5 dark:text-white font-body font-normal rounded-md">
+            <a
+              href={`team/${team.slug}`}
+              key={team.id}
+              className="inline-block"
+            >
+              <div className="p-4 bg-white dark:bg-white/5 dark:text-white font-body font-normal rounded-md h-full">
                 <img
                   src={`/${team.data.imageUrl}`}
                   className="w-full h-full rounded-md object-cover max-h-[250px]"
@@ -115,21 +120,61 @@ const MeetTheTeam = () => {
                     Passionate about deep tech, artificial intelligence and
                     making the world a petter place.
                   </p>
-                  <a href="">
-                    <svg
-                      width="17"
-                      height="16"
-                      viewBox="0 0 17 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        id="LinkedIn"
-                        d="M0 1.85859C0 1.31985 0.189195 0.87541 0.567568 0.525253C0.945941 0.175079 1.43784 0 2.04324 0C2.63784 0 3.11891 0.17238 3.48649 0.517172C3.86486 0.872727 4.05406 1.33602 4.05406 1.90707C4.05406 2.42424 3.87028 2.85521 3.5027 3.2C3.12433 3.55556 2.62703 3.73333 2.01081 3.73333H1.9946C1.4 3.73333 0.918925 3.55556 0.551352 3.2C0.183778 2.84444 0 2.3973 0 1.85859ZM0.210811 16V5.20404H3.81081V16H0.210811ZM5.80541 16H9.40541V9.97172C9.40541 9.5946 9.44866 9.30369 9.53514 9.09899C9.68648 8.73265 9.91622 8.42288 10.2243 8.1697C10.5324 7.91649 10.9189 7.7899 11.3838 7.7899C12.5946 7.7899 13.2 8.60336 13.2 10.2303V16H16.8V9.8101C16.8 8.21548 16.4216 7.00606 15.6649 6.18182C14.9081 5.35758 13.9081 4.94545 12.6649 4.94545C11.2703 4.94545 10.1838 5.54343 9.40541 6.73939V6.77172H9.38919L9.40541 6.73939V5.20404H5.80541C5.82702 5.54882 5.83784 6.62086 5.83784 8.4202C5.83784 10.2195 5.82702 12.7461 5.80541 16Z"
-                        fill="#6B7280"
-                      />
-                    </svg>
-                  </a>
+                  <div className=" flex items-center gap-4 mt-3 pb-2">
+                    {team.data.social.twitter && (
+                      <a href={team.data.social.twitter}>
+                        <svg
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="18"
+                          width="18"
+                        >
+                          <path
+                            id="Vector"
+                            d="M10.6756 7.62177L17.2324 0H15.6786L9.98536 6.61788L5.43815 0H0.193481L7.06976 10.0074L0.193481 18H1.74733L7.75958 11.0113L12.5618 18H17.8064L10.6752 7.62177H10.6756ZM8.54738 10.0956L7.85067 9.09906L2.3072 1.16971H4.69381L9.16746 7.56895L9.86417 8.56546L15.6794 16.8835H13.2928L8.54738 10.096V10.0956Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </a>
+                    )}
+                    {team.data.social.linkedin && (
+                      <a href={team.data.social.linkedin}>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class=""
+                        >
+                          <path
+                            id="LinkedIn"
+                            d="M0 2.42005C0 1.84284 0.202708 1.36665 0.608108 0.991481C1.01351 0.616295 1.54055 0.428711 2.18919 0.428711C2.82626 0.428711 3.34169 0.613403 3.73552 0.982823C4.14092 1.36378 4.34363 1.86016 4.34363 2.472C4.34363 3.02611 4.14672 3.48786 3.7529 3.85728C3.3475 4.23823 2.81467 4.42871 2.15444 4.42871H2.13707C1.49999 4.42871 0.984562 4.23823 0.590734 3.85728C0.196905 3.47633 0 2.99725 0 2.42005ZM0.225869 17.5716V6.00447H4.08301V17.5716H0.225869ZM6.22008 17.5716H10.0772V11.1127C10.0772 10.7086 10.1236 10.3969 10.2162 10.1776C10.3784 9.78512 10.6245 9.45323 10.9546 9.18195C11.2847 8.91066 11.6988 8.77503 12.1969 8.77503C13.4942 8.77503 14.1429 9.6466 14.1429 11.3897V17.5716H18V10.9395C18 9.23101 17.5946 7.9352 16.7838 7.05208C15.973 6.16897 14.9015 5.72741 13.5695 5.72741C12.0753 5.72741 10.9112 6.3681 10.0772 7.64949V7.68412H10.0598L10.0772 7.64949V6.00447H6.22008C6.24324 6.37387 6.25483 7.52249 6.25483 9.45035C6.25483 11.3782 6.24324 14.0853 6.22008 17.5716Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </a>
+                    )}
+                    {team.data.social.website && (
+                      <a href={team.data.social.website}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </a>

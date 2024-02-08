@@ -79,15 +79,15 @@ const CompanList = ({ companies, tags }) => {
             <a href={`/portfolio/${rest.slug}`} key={index}>
               <div className="p-6 bg-white/50 dark:bg-white/[.08] dark:border-white/[.08] backdrop-blur-[6px] rounded-xl hover:shadow-md dark:hover:shadow-[#d9297861]  transition-shadow">
                 <div className="flex items-center justify-between mb-4 gap-2">
-                  <div className="w-[88px] h-[88px] flex-1">
+                  <div className=" flex items-center w-[88px] h-[88px] rounded-lg object-cover flex-1 overflow-hidden">
                     <img
                       src={data.logo}
-                      className="w-[88px] h-[88px] rounded-lg object-cover dark:hidden"
+                      className=" max-w-[88px] rounded-lg object-cover  dark:hidden"
                       alt=""
                     />
                     <img
                       src={data.darkLogo}
-                      className="w-[88px] h-[88px] rounded-lg object-cover hidden  dark:block"
+                      className="max-w-[88px]  rounded-lg object-cover hidden  dark:block"
                       alt=""
                     />
                   </div>
