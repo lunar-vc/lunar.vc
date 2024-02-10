@@ -12,4 +12,4 @@ npm run dev
 - [ ] #3 issue
 - [x] #4 issue
 - [ ] #5 issue
-- [ ] #6 issue
+- [x] #6 issue

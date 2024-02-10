@@ -256,6 +256,29 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blogs">
 } & { render(): Render[".mdx"] };
 };
+"common": {
+"privacy.mdx": {
+	id: "privacy.mdx";
+  slug: "privacy";
+  body: string;
+  collection: "common";
+  data: InferEntrySchema<"common">
+} & { render(): Render[".mdx"] };
+"terms.mdx": {
+	id: "terms.mdx";
+  slug: "terms";
+  body: string;
+  collection: "common";
+  data: InferEntrySchema<"common">
+} & { render(): Render[".mdx"] };
+"tos.mdx": {
+	id: "tos.mdx";
+  slug: "tos";
+  body: string;
+  collection: "common";
+  data: InferEntrySchema<"common">
+} & { render(): Render[".mdx"] };
+};
 "companies": {
 "Deepset.mdx": {
 	id: "Deepset.mdx";
