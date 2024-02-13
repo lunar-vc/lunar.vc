@@ -4,9 +4,10 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 const PortfolioItem = ({ companies, tags }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [parent, enableAnimations] = useAutoAnimate({
-    duration: 250,
+    duration: 400,
     easing: "ease-in-out",
   });
+
   const handleTagClick = (tag) => {
     setSelectedTags((prevSelectedTags) => {
       // Toggle the selected tag
@@ -35,6 +36,12 @@ const PortfolioItem = ({ companies, tags }) => {
       setSelectedTags([urlTag]);
     }
   }, [tags]);
+
+  // Enable animations when component mounts
+  useEffect(() => {
+    enableAnimations();
+  }, [enableAnimations]);
+
   return (
     <section className="portcomp w-full mb-8">
       <div className="">
